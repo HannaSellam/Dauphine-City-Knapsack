@@ -9,6 +9,7 @@ Projet Java-Objet, 2025-2026.
 - [C. Lancer le programme](#c-lancer-le-programme)
 - [D. Utilisation du menu console](#d-utilisation-du-menu-console)
 - [E. Exemple d'utilisation](#e-exemple-dutilisation)
+- [F. Tests unitaires](#f-tests-unitaires)
 
 
 ---
@@ -113,6 +114,11 @@ Pour cette petite instance, l'utilité obtenue est égale à l'optimum : 150.
 Cela ne signifie pas que la méthode gloutonne trouve toujours l'optimum.
 
 Saisir ensuite `3` dans le menu principal pour quitter.
+
+## F. Tests unitaires
+
+Les tests utilisent l'API JUnit Jupiter et se trouvent dans
+`src/testJUnit/TestProjet.java`.
 
 ### 1. Simulation de l'équipe municipale
 
