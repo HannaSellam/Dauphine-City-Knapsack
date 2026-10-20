@@ -55,7 +55,7 @@ Se placer dans le dossier `src` du projet, puis compiler et exécuter :
 cd chemin/ProjetJava/src
 
 # Compilation
-javac main/Main.java
+javac -encoding UTF-8 main/Main.java
 
 # Exécution
 java main.Main
@@ -64,6 +64,46 @@ java main.Main
 ## D. Utilisation du menu console
 
 Au lancement, le programme propose trois choix.
+
+### 1. Simulation de l'équipe municipale
+
+1. Les experts proposent des projets.
+2. Chaque évaluateur attribue ses coûts (économique, social, environnemental).
+3. L'élu attribue le bénéfice.
+4. On obtient une liste de projets.
+
+Ensuite, l'utilisateur choisit comment créer le sac à dos (2 modes) :
+
+- **Budgets par types de coûts** : budget économique, social, environnemental.
+- **Budgets par secteurs** : sport, santé, éducation, culture, attractivité économique.
+
+Puis il choisit une méthode de résolution :
+
+- **Gloutonne à ajout** (ordre Somme ou ordre Max)
+- **Gloutonne à retrait**
+- **Hill Climbing** (choix de la variante)
+
+Le programme affiche enfin la liste des projets sélectionnés et leur utilité totale.
+
+### 2. Génération d'une instance depuis un fichier
+
+Au lieu de générer les projets aléatoirement, on construit le sac à dos directement à partir d'un fichier (utile pour tester sur des cas plus difficiles).
+
+- Si le fichier est dans le dossier `src`, il suffit de saisir son nom.
+- Sinon, saisir son chemin absolu.
+
+Format du fichier :
+
+1. `n k opt` : nombre d'objets, nombre de budgets, valeur optimale (ou `0` si inconnue).
+2. Les utilités `u_i` des `n` objets.
+3. La matrice de contraintes, de taille `k × n`.
+4. Les budgets `B_l`, pour `l = 1…k`.
+
+Après lecture du fichier, on retrouve le même menu de résolution (méthodes gloutonnes ou Hill Climbing).
+
+### 3. Quitter
+
+Arrêt du programme.
 
 ## E. Exemple d'utilisation
 
@@ -120,42 +160,9 @@ Saisir ensuite `3` dans le menu principal pour quitter.
 Les tests utilisent l'API JUnit Jupiter et se trouvent dans
 `src/testJUnit/TestProjet.java`.
 
-### 1. Simulation de l'équipe municipale
+La classe contient 14 méthodes de test.
 
-1. Les experts proposent des projets.
-2. Chaque évaluateur attribue ses coûts (économique, social, environnemental).
-3. L'élu attribue le bénéfice.
-4. On obtient une liste de projets.
-
-Ensuite, l'utilisateur choisit comment créer le sac à dos (2 modes) :
-
-- **Budgets par types de coûts** : budget économique, social, environnemental.
-- **Budgets par secteurs** : sport, santé, éducation, culture, attractivité économique.
-
-Puis il choisit une méthode de résolution :
-
-- **Gloutonne à ajout** (ordre Somme ou ordre Max)
-- **Gloutonne à retrait**
-- **Hill Climbing** (choix de la variante)
-
-Le programme affiche enfin la liste des projets sélectionnés et leur utilité totale.
-
-### 2. Génération d'une instance depuis un fichier
-
-Au lieu de générer les projets aléatoirement, on construit le sac à dos directement à partir d'un fichier (utile pour tester sur des cas plus difficiles).
-
-- Si le fichier est dans le dossier `src`, il suffit de saisir son nom.
-- Sinon, saisir son chemin absolu.
-
-Format du fichier :
-
-1. `n k opt` : nombre d'objets, nombre de budgets, valeur optimale (ou `0` si inconnue).
-2. Les utilités `u_i` des `n` objets.
-3. La matrice de contraintes, de taille `k × n`.
-4. Les budgets `B_l`, pour `l = 1…k`.
-
-Après lecture du fichier, on retrouve le même menu de résolution (méthodes gloutonnes ou Hill Climbing).
-
-### 3. Quitter
-
-Arrêt du programme.
+Pour lancer les tests dans Eclipse :
+1. Vérifier que la bibliothèque JUnit Jupiter est configurée dans le projet.
+2. Faire un clic droit sur `src/testJUnit/TestProjet.java`.
+3. Sélectionner **Run As → JUnit Test**.
