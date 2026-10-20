@@ -8,6 +8,8 @@ Projet Java-Objet, 2025-2026.
 - [B. Structure du code](#b-structure-du-code)
 - [C. Lancer le programme](#c-lancer-le-programme)
 - [D. Utilisation du menu console](#d-utilisation-du-menu-console)
+- [E. Exemple d'utilisation](#e-exemple-dutilisation)
+
 
 ---
 
@@ -61,6 +63,56 @@ java main.Main
 ## D. Utilisation du menu console
 
 Au lancement, le programme propose trois choix.
+
+## E. Exemple d'utilisation
+
+Un fichier `exemple.txt` est fourni à la racine du dépôt.
+Il contient 5 objets, 3 contraintes et les budgets suivants : 9, 7 et 7.
+
+### Lancement depuis le terminal
+
+Depuis le dossier principal du projet :
+
+```bash
+cd src
+javac -encoding UTF-8 main/Main.java
+java main.Main
+```
+
+### Choix dans les menus
+
+Saisir successivement, en validant chaque ligne avec Entrée :
+
+1. `2` : générer un sac à dos à partir d'un fichier.
+2. `../exemple.txt` : charger le fichier placé à la racine du projet.
+3. `1` : utiliser la méthode gloutonne à ajout.
+4. `1` : sélectionner l'ordre Somme.
+
+### Résultat attendu
+
+Lors d'un nouveau lancement du programme, l'extrait final attendu est :
+
+```text
+¤¤ Solution contient les objets :
+~ Objet numero 1
+Utilite : 60
+
+~ Objet numero 3
+Utilite : 40
+
+~ Objet numero 2
+Utilite : 50
+
+¤¤ Utilité de la solution 150
+```
+
+Les objets 1, 3 et 2 sont sélectionnés.
+Leurs coûts cumulés sont de 9, 7 et 7 : les trois budgets sont respectés.
+
+Pour cette petite instance, l'utilité obtenue est égale à l'optimum : 150.
+Cela ne signifie pas que la méthode gloutonne trouve toujours l'optimum.
+
+Saisir ensuite `3` dans le menu principal pour quitter.
 
 ### 1. Simulation de l'équipe municipale
 
